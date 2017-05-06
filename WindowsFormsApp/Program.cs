@@ -16,7 +16,10 @@ namespace WindowsFormsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            IAddressHelp addressHelp = new AddressHelp();
+            string addressInfo = addressHelp.GetAddressInfo("강원도 춘천시");
+            MessageBox.Show(addressInfo);
         }
     }
 }
