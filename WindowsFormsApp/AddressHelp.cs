@@ -9,14 +9,15 @@ namespace WindowsFormsApp
 {
     class AddressHelp : IAddressHelp
     {
-        public string GetAddressInfo(string address)
+        public string GetAddressInfo(string intput)
         {
-            using (AddressHelpForm form = new AddressHelpForm())
+            using (DaumAddressSearchForm form = new DaumAddressSearchForm())
             {
-                string addressInfo = null;
-                if (form.ShowDialog(address) == DialogResult.OK)
-                    addressInfo = form.GetAddressInfo();
-                return addressInfo;
+                string output = null;
+                form.SetInput(intput);
+                if (form.ShowDialog() == DialogResult.OK)
+                    output = form.GetOutput();
+                return output;
             }
         }
     }
